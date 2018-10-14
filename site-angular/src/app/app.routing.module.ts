@@ -5,6 +5,7 @@ import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
 import { PeopleListComponent } from './components/people-list/people-list.component';
 import { RegisterComponent } from './components/register/register.component';
+import { PeopleComponent } from './components/people/people.component';
 
 const routes: Routes = [
   {
@@ -14,6 +15,10 @@ const routes: Routes = [
   {
     path: 'login',
     component: LoginComponent
+  },
+  {
+    path: 'people/:personId',
+    component: PeopleComponent
   },
   {
     path: 'people/list',

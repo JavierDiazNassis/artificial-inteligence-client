@@ -1,74 +1,37 @@
-<main class="main" role="main">
-  <div class="py-5 bg-light">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-4">
-          <div class="card mb-3">
-            <div class="card-body text-center">
-              <img src="https://res.cloudinary.com/batty/image/upload/v1538527473/persons/alan001.jpg" alt="Patrick Langston"
-                class="img-fluid rounded-circle mb-2" width="96" height="96">
-              <h4 class="card-title mb-0">Anonimo</h4>
-              <div class="text-muted mb-2">
-                <p>Persona sospechosa</p>
-              </div>
+<div class="container">
+<br>
+  <div class="card mb-4">
+    <div class="card-body">
+      <h5 class="card-title">Formulario</h5>
 
+      <form id="publicationForm" #PeopleReportForm="ngForm" (ngSubmit)="PeopleReport(PeopleReportForm)">
+        <div class="row">
+          <div class="col-md-8">
+            <div class="form-group mt-2">
+              <label for="inputUsername">Nombre del sospechoso</label>
+              <input name="name" ngModel type="text" class="form-control" id="inputUsername">
             </div>
-            <hr class="my-0">
-            <div class="card-body">
-              <h5 class="h6 card-title">Acusaciones</h5>
-              <div class="text-muted mb-2">
-                <p>El sujeto registrado, no quiso decir su nombre, lo encontramos robando en el barrio la campiña, se
-                  robó un celular</p>
-              </div>
+            <div class="form-group">
+              <label for="inputUsername">Acciones cometidas por el sospechoso</label>
+              <textarea name="description" ngModel rows="2" class="form-control" id="inputBio"></textarea>
             </div>
-
-          </div><!-- /.card -->
-        </div><!-- /.col-md-4 -->
-
-        <div class="col-md-8">
-
-          <div class="card">
-            <div class="card-header">
-              <ul class="nav nav-tabs card-header-tabs pull-right" role="tablist">
-                <li class="nav-item">
-                  <a class="nav-link active" id="photos-tab" data-toggle="tab" href="#photos" aria-controls="photos"
-                    aria-selected="true" role="tab">Fotos relacionadas</a>
-                </li>
-              </ul>
-            </div>
-            <div class="card-body">
-              <div class="tab-content">
-                <div class="tab-pane fade show active" id="photos" role="tabpanel" aria-labelledby="photos-tab">
-
-                  <div class="row no-gutters m--1">
-                    <div class="col-4">
-                      <div class="mx-1 my-2">
-                        <img src="https://res.cloudinary.com/batty/image/upload/v1538527473/persons/alan001.jpg" class="img-fluid medium-zoom-image"
-                          alt="" data-action="zoom" style="height: 220px; width: 220px;">
-                      </div>
-                    </div>
-                    <div class="col-4">
-                      <div class="mx-1 my-2">
-                        <img src="https://res.cloudinary.com/batty/image/upload/v1538527473/persons/alan001.jpg" class="img-fluid medium-zoom-image"
-                          alt="" data-action="zoom" style="height: 220px; width: 220px;">
-                      </div>
-                    </div>
-                    <div class="col-4">
-                      <div class="mx-1 my-2">
-                        <img src="https://res.cloudinary.com/batty/image/upload/v1538527473/persons/alan001.jpg" class="img-fluid medium-zoom-image"
-                          alt="" data-action="zoom" style="height: 220px; width: 220px;">
-                      </div>
-                    </div>
-                  </div>
-
-                </div><!-- /.tab-pange -->
-                <div class="tab-pane fade" id="projects" role="tabpanel" aria-labelledby="projects-tab">...</div>
-                <div class="tab-pane fade" id="activity" role="tabpanel" aria-labelledby="activity-tab">...</div>
+          </div>
+          <div class="col-md-4">
+            <div class="text-center">
+              <img alt="Image" src="https://www.flaticon.es/premium-icon/icons/svg/205/205714.svg" class="img-responsive mt-2" width="128" height="128">
+              <div class="mt-2">
+                  <input type="file" class="form-control-file" (change)="Files($event)" id="pic" style="display: none" multiple>
+                <span onclick="document.getElementById('pic').click()" class="btn btn-secondary"><i class="fas fa-upload"></i> Cargar imágenes</span>
               </div>
             </div>
           </div>
-        </div><!-- /.col-md-8 -->
-      </div><!-- /.row -->
+        </div>
+
+        <button type="submit" class="btn btn-info">Envíar</button>
+      </form>
+
     </div>
   </div>
-</main>
+
+</div>
+<app-people-list></app-people-list>
