@@ -21,12 +21,13 @@ export class PeopleComponent implements OnInit {
 
 
   async GetUserByPersonId() {
-    // this.activeRoute.params.subscribe(params => {
-    //   this.peopleService.GetPeopleByPersonId(params.personId)
-    // })
-    const response = await this.peopleService.GetPeopleByPersonId('');
-    this.people = response;
-    console.log(response);
+    this.activeRoute.params.subscribe(async (params) => {
+      const personId = params.personId
+      const response = await this.peopleService.GetPeopleByPersonId(personId);
+      this.people = response;
+      console.log(response);
+    })
+
   }
 
 }

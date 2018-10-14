@@ -2,23 +2,23 @@
 <br>
   <div class="card mb-4">
     <div class="card-body">
-      <h5 class="card-title">Formulario</h5>
+      <h5 class="card-title">Formulario - Ingresar sospechoso</h5>
 
       <form id="publicationForm" #PeopleReportForm="ngForm" (ngSubmit)="PeopleReport(PeopleReportForm)">
         <div class="row">
           <div class="col-md-8">
             <div class="form-group mt-2">
-              <label for="inputUsername">Nombre del sospechoso</label>
+              <label for="inputUsername">Nombre</label>
               <input name="name" ngModel type="text" class="form-control" id="inputUsername">
             </div>
             <div class="form-group">
-              <label for="inputUsername">Acciones cometidas por el sospechoso</label>
+              <label for="inputUsername">Acciones cometidas</label>
               <textarea name="description" ngModel rows="2" class="form-control" id="inputBio"></textarea>
             </div>
           </div>
           <div class="col-md-4">
             <div class="text-center">
-              <img alt="Image" src="https://www.flaticon.es/premium-icon/icons/svg/205/205714.svg" class="img-responsive mt-2" width="128" height="128">
+              <img alt="Image" src="https://image.flaticon.com/icons/svg/864/864582.svg" class="img-responsive mt-2" width="128" height="128">
               <div class="mt-2">
                   <input type="file" class="form-control-file" (change)="Files($event)" id="pic" style="display: none" multiple>
                 <span onclick="document.getElementById('pic').click()" class="btn btn-secondary"><i class="fas fa-upload"></i> Cargar imágenes</span>

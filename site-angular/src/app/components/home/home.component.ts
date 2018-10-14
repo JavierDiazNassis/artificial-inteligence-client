@@ -10,21 +10,29 @@ export class HomeComponent implements OnInit {
 
   filesToUpload: Array<any> = [];
 
-  constructor() { 
+  constructor(private peopleService: PeopleService) { 
     
   }
 
   ngOnInit() {
   }
 
-  PeopleReport(dataForm){
+  async PeopleReport(dataForm){
+
     let data = dataForm.value
+    const NamePeople = await this.peopleService.AddPeople(data)
+
+    if (NamePeople != null){
+      
+    }
+
+    console.log(NamePeople.personId)
+
     data.files = this.filesToUpload
 
     // if(data.files.length == 0)
     //   return
-
-    console.log(data)
+    
   }
 
   Files(event: any) {

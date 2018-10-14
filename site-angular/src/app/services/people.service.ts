@@ -12,7 +12,7 @@ export class PeopleService {
   }
 
   AddPeople(data):Promise<any>{
-    return this.httpClient.post(this.url, data, {}).toPromise();
+    return this.httpClient.post(`${this.url}/user`, data, {}).toPromise();
   }
 
   AddFacetoPeople(data):Promise<any>{
@@ -24,7 +24,6 @@ export class PeopleService {
   }
 
   GetPeopleByPersonId(personId):Promise<any>{
-    personId = '3fd9092a-eaaf-4e5e-9cf2-435aca87fdfa'
     return this.httpClient.get(`${this.url}/user?personId=${personId}`).toPromise();
   }
 
