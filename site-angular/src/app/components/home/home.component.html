@@ -1,7 +1,8 @@
 <div class="container">
-<br>
+  <br>
   <div class="card mb-4">
     <div class="card-body">
+
       <h5 class="card-title">Formulario - Ingresar sospechoso</h5>
 
       <form id="publicationForm" #PeopleReportForm="ngForm" (ngSubmit)="PeopleReport(PeopleReportForm)">
@@ -18,10 +19,13 @@
           </div>
           <div class="col-md-4">
             <div class="text-center">
-              <img alt="Image" src="https://image.flaticon.com/icons/svg/864/864582.svg" class="img-responsive mt-2" width="128" height="128">
+              <img alt="Image" src="https://image.flaticon.com/icons/svg/190/190640.svg" class="img-responsive mt-2"
+                width="128" height="128">
               <div class="mt-2">
-                  <input type="file" class="form-control-file" (change)="Files($event)" id="pic" style="display: none" multiple>
-                <span onclick="document.getElementById('pic').click()" class="btn btn-secondary"><i class="fas fa-upload"></i> Cargar imágenes</span>
+                <input type="file" class="form-control-file" (change)="Files($event)" id="pic" style="display: none"
+                  multiple>
+                <span style="background-color: #A3D5E0; border: 1px solid transparent; color: black;" onclick="document.getElementById('pic').click()" class="btn btn-secondary"><i class="fas fa-upload"></i>
+                  Cargar imágenes</span>
               </div>
             </div>
           </div>
@@ -33,5 +37,74 @@
     </div>
   </div>
 
+  <div class="card mb-4">
+    <div class="card-body">
+
+      <div class="py-5 text-center">
+        <img class="d-block mx-auto mb-4" src="https://image.flaticon.com/icons/svg/1049/1049877.svg" alt="" width="140"
+          height="140">
+        <h2>Comprobar antecedentes</h2>
+        <p class="lead">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem adipisci et explicabo placeat
+          impedit atque libero dicta illo debitis nisi! Doloremque eius quod rerum pariatur. Laudantium eveniet
+          cupiditate provident! Rem?</p>
+
+        <input type="file" class="form-control-file" (change)="PeopleCheck($event)" id="pic_check" style="display: none"
+          multiple>
+        <span onclick="document.getElementById('pic_check').click()" class="btn btn-primary"><i class="fas fa-upload"></i>
+          Cargar imágenes</span>
+
+
+        <button id="btn_modal" style="display: none;" type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-sm" onclick="$('#myModal').modal('toggle')">fff</button>
+
+      </div>
+
+
+
+
+    </div>
+  </div>
+
 </div>
 <app-people-list></app-people-list>
+
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+
+        <div class="card">
+          <div class="card-body">
+            <div class="m-sm-4">
+              <div class="text-center">
+                <img [src]="userReport?.user?.images[0]?.url" alt="Jane Roe" class="img-fluid rounded-circle"
+                  width="132" height="132">
+                <div class="text-center">
+                  <h1 class="h3">{{userReport?.user?.name}}</h1>
+                  <p class="lead">
+                    Sospechoso: {{userReport?.confidence}}%
+                  </p>
+                </div>
+              </div>
+              <div class="media text-muted pt-3">
+                <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+                  <strong class="d-block text-gray-dark">Acusaciones</strong>
+                  Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor
+                  mauris condimentum nibh, ut fermentum massa justo sit amet risus.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

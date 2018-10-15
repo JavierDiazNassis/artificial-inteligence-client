@@ -35,7 +35,9 @@
             ],
             "scripts": [
               "node_modules/aos/dist/aos.js",
-              "src/assets/js/iziToast.min.js"
+              "src/assets/js/iziToast.min.js",
+              "src/assets/js/bootstrap.min.js",
+              "src/assets/js/popper.min.js"
             ]
           },
           "configurations": {

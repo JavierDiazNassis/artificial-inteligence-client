@@ -13,18 +13,32 @@ export class FileService {
 
   }
 
-  public AddFile(files: Array<File>, personId): Promise<any> {
+  public AddFile(files: Array<File>, personId, type: string): Promise<any> {
 
     const formData: any = new FormData();
 
-    formData.append("personId", personId);
+    if (type == "REPORT") {
 
-    files.forEach((file,i) => {
-      formData.append("files", file, file.name);
-    })
+      formData.append("personId", personId);
+      files.forEach((file, i) => {
+        formData.append("files", file, file.name);
+      })
 
-    return this.http.post(`${this.url}/user/image`, formData, { headers: this.headers }).toPromise();
-    
+    } else {
+
+      files.forEach((file, i) => {
+        formData.append("file", file, file.name);
+      })
+
+    }
+
+    if (type == "REPORT")
+      return this.http.post
+        (`${this.url}/user/image`, formData, { headers: this.headers }).toPromise();
+
+    return this.http.post
+      (`${this.url}/user/findById`, formData, { headers: this.headers }).toPromise();
+
   }
 
 }
