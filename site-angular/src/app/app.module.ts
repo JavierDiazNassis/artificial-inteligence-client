@@ -13,6 +13,7 @@ import { RegisterService } from './services/register.service';
 import { HttpClientModule } from '@angular/common/http';
 import { PeopleComponent } from './components/people/people.component';
 import { PeopleService } from './services/people.service';
+import { FileService } from './services/file.service';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { PeopleService } from './services/people.service';
   providers: [
     LoginService,
     RegisterService,
-    PeopleService
+    PeopleService,
+    FileService
   ],
   bootstrap: [AppComponent]
 })

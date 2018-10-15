@@ -1,30 +1,29 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { config } from '../app.config';
 
 @Injectable()
 export class FileService {
 
-  private url: string = "";
+  private url: string = config.url;
   private headers: HttpHeaders;
 
   constructor(private http: HttpClient) {
 
-
   }
 
-  public AddFile(files: Array<File>, userId, folderName): Observable<any> {
+  public AddFile(files: Array<File>, personId): Promise<any> {
 
     const formData: any = new FormData();
 
-    formData.append("userId", userId);
-    formData.append("folderName", folderName);
+    formData.append("personId", personId);
 
-    for (let i = 0; i < files.length; i++) {
-      formData.append("files", files[i], files[i]['name']);
-    }
+    files.forEach((file,i) => {
+      formData.append("files", file, file.name);
+    })
 
-    return this.http.post(`${this.url}/fileupload`, formData, { headers: this.headers });
+    return this.http.post(`${this.url}/user/image`, formData, { headers: this.headers }).toPromise();
     
   }
 

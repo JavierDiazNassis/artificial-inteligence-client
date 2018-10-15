@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PeopleService } from 'src/app/services/people.service';
+import { FileService } from 'src/app/services/file.service';
 
 @Component({
   selector: 'app-home',
@@ -10,7 +11,7 @@ export class HomeComponent implements OnInit {
 
   filesToUpload: Array<any> = [];
 
-  constructor(private peopleService: PeopleService) { 
+  constructor(private peopleService: PeopleService, private fileService: FileService) { 
     
   }
 
@@ -24,11 +25,16 @@ export class HomeComponent implements OnInit {
 
     if (NamePeople != null){
       
+      //if (this.filesToUpload.length > 0){
+        const response = await this.fileService.AddFile(this.filesToUpload,NamePeople.personId)
+        console.log(response)
+      //}
+
     }
 
-    console.log(NamePeople.personId)
+   // console.log(NamePeople.personId)
 
-    data.files = this.filesToUpload
+    //data.files = this.filesToUpload
 
     // if(data.files.length == 0)
     //   return
@@ -37,7 +43,6 @@ export class HomeComponent implements OnInit {
 
   Files(event: any) {
     this.filesToUpload = Array.from(event.target.files);
-    console.log(this.filesToUpload)
   }
 
 }
